@@ -21,7 +21,7 @@ export class UploadImageComponent implements OnInit {
 
   compressFile() {
 
-    if (isNaN(this.compressionValue) ||  this.compressionValue > 100 ||  this.compressionValue < 0.01) {
+    if (isNaN(this.compressionValue) ||  this.compressionValue > 100 ||  this.compressionValue < 1) {
       this.warnInput = true;
       return;
     }
@@ -30,7 +30,6 @@ export class UploadImageComponent implements OnInit {
     this.imageCompress.uploadFile().then(({image, orientation}) => {
       this.imgResultBeforeCompress = image;
       console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
-      debugger;
       this.imageCompress.compressFile(image, orientation, 50, this.compressionValue).then(
         result => {
           this.imgResultAfterCompress = result;

@@ -5,11 +5,12 @@
       <div class="col-md-8 m-5">
         <h3>Image better compression</h3>
         <div>
-          <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">U P L O A D  I M A G E</button>
+          <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">U P L O A D &nbsp;&nbsp;I M A G E</button>
           <div class="ml-5 mr-5 md-form">
               <input mdbInput type="text" color="elegant" class="form-control" [(ngModel)]="compressionValue"
                 digitOnly minlength="0.01" maxlength="100">
-              <label class="">Image quality</label>
+              <label class="">Image compression quality</label>
+              <input type="range" class="custom-range" id="customRange1" [(ngModel)]="compressionValue" min="1" max="100">
               <span style="color: red;" *ngIf="warnInput">Enter number from 0.01 to 100</span>
             </div>
           <div>

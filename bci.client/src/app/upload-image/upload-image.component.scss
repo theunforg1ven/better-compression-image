@@ -8,6 +8,19 @@ text-align: center !important;
     text-align: center !important;
 }
 
+input[type=range]::-webkit-slider-thumb {
+    background: black;
+    color: black;
+}
+input[type=range]::-moz-range-thumb {
+    background: black;
+    color: black;
+}
+input[type=range]::-ms-thumb {
+    background: black;
+    color: black;
+}
+
 label {
     color: black !important;
 }
