@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgxImageCompressService} from 'ngx-image-compress';
 
 @Component({
   selector: 'app-upload-image',
@@ -6,32 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload-image.component.scss']
 })
 export class UploadImageComponent implements OnInit {
-  public imagePath: any;
-  public imgURL: any;
-  public message: string;
+  public imgResultBeforeCompress: string;
+  public imgResultAfterCompress: string;
 
-  constructor() { }
+  constructor(private imageCompress: NgxImageCompressService) { }
 
   ngOnInit() {
   }
 
-  preview(files: any) {
-    if (files.length === 0) {
-      return;
-    }
-
-    const mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = 'Only images are supported.';
-      return;
-    }
-
-    const reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = () => {
-      this.imgURL = reader.result;
-    };
+  compressFile() {
+    this.imageCompress.uploadFile().then(({image, orientation}) => {
+      this.imgResultBeforeCompress = image;
+      console.warn('Size in bytes was:', this.imageCompress.byteCount(image));
+      this.imageCompress.compressFile(image, orientation, 50, 0.01).then(
+        result => {
+          this.imgResultAfterCompress = result;
+          console.warn('Size in bytes is now:', this.imageCompress.byteCount(result));
+        }
+      );
+    });
   }
 
   generateRandomStr(): string {
