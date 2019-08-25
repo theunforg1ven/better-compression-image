@@ -6,6 +6,12 @@
         <h3>Image better compression</h3>
         <div>
           <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">U P L O A D  I M A G E</button>
+          <div class="ml-5 mr-5 md-form">
+              <input mdbInput type="text" color="elegant" class="form-control" [(ngModel)]="compressionValue"
+                digitOnly minlength="0.01" maxlength="100">
+              <label class="">Image quality</label>
+              <span style="color: red;" *ngIf="warnInput">Enter number from 0.01 to 100</span>
+            </div>
           <div>
               <img class="mt-3" height="400" *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="">
               <div>
