@@ -36,6 +36,11 @@ export class UploadImageComponent implements OnInit {
     });
   }
 
+  public reloadImages(): void {
+    this.imgResultBeforeCompress = null;
+    this.imgResultAfterCompress = null;
+  }
+
   generateRandomStr(): string {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }

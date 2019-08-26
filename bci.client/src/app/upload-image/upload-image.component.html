@@ -8,6 +8,10 @@
           <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">
             U P L O A D &nbsp;&nbsp;I M A G E
           </button>
+          <!-- Button to reload by firing reloadImages() event by click -->
+          <button  mdbBtn type="button" color="elegant" outline="true" (click)="reloadImages()">
+              R E L O A D
+          </button>
           <!-- Input image compression quality -->
           <div class="ml-5 mr-5 md-form">
               <input mdbInput type="text" color="elegant" class="form-control" [(ngModel)]="compressionValue"
