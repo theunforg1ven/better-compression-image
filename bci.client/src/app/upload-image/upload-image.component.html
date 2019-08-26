@@ -1,18 +1,22 @@
-
 <div class="container">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 m-5">
         <h3>Image better compression</h3>
         <div>
-          <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">U P L O A D &nbsp;&nbsp;I M A G E</button>
+          <!-- Button to upload image by firing compressFile() event by click -->
+          <button  mdbBtn type="button" color="elegant" outline="true" (click)="compressFile()">
+            U P L O A D &nbsp;&nbsp;I M A G E
+          </button>
+          <!-- Input image compression quality -->
           <div class="ml-5 mr-5 md-form">
               <input mdbInput type="text" color="elegant" class="form-control" [(ngModel)]="compressionValue"
                 digitOnly minlength="0.01" maxlength="100">
               <label class="">Image compression quality</label>
               <input type="range" class="custom-range" id="customRange1" [(ngModel)]="compressionValue" min="1" max="100">
               <span style="color: red;" *ngIf="warnInput">Enter number from 0.01 to 100</span>
-            </div>
+          </div>
+          <!-- Show and download current image before compression -->
           <div>
               <img class="mt-3" height="400" *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="">
               <div>
@@ -20,6 +24,7 @@
                   mdbBtn type="button" color="elegant" outline="true" mdbWavesEffect>D O W N L O A D</button>
              </div>
           </div>
+          <!-- Show and download image after compression -->
           <div> 
               <img class="mt-3" height="400" *ngIf="imgResultAfterCompress" [src]="imgResultAfterCompress" alt="">
               <div>
