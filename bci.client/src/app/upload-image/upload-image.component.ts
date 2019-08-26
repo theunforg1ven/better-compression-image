@@ -36,7 +36,7 @@ export class UploadImageComponent implements OnInit {
     });
   }
 
-  public reloadImages(): void {
+  reloadImages(): void {
     this.imgResultBeforeCompress = null;
     this.imgResultAfterCompress = null;
   }
